@@ -12,11 +12,11 @@ while True:
     temperature_infos = w.Sensor()
     for sensor in temperature_infos:
         if sensor.Name == "GPU Hot Spot" and gpu_found == False:
-            temp_value += "GPU" + " " + str(round(sensor.Value,1)) + " C"
+            temp_value += "GPU" + " " + str(round(sensor.Value,1)) + u'\xb0' + "C"
             gpu_found = True
             temp_value += "\n"
         if sensor.Name == "CPU Package" and cpu_found == False:
-            temp_value += "CPU" + " " + str(round(sensor.Value,1)) + " C"
+            temp_value += "CPU" + " " + str(round(sensor.Value,1)) + u'\xb0' + "C"
             cpu_found = True
-    node.write(temp_value.encode())
+    node.write(temp_value.encode('ibm437'))
     time.sleep(1)

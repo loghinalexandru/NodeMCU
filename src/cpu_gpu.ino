@@ -19,6 +19,7 @@ void setup() {
 
   display.setTextSize(2);
   display.setTextColor(WHITE);
+  display.cp437(true);
 }
 
 void loop() {
